@@ -1,0 +1,15 @@
+@startuml DatabaseObjects
+
+object ZDAB_PARAMS_A {
+    *param_id
+    param_descr
+    s_admin_data
+}
+
+object ZDAB_PARAM_CNF_A {
+    *param_id
+    param_counter
+    param_value
+}
+
+@enduml
