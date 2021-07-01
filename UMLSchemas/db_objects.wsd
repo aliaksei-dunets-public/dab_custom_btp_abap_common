@@ -1,15 +1,41 @@
 @startuml DatabaseObjects
 
-object ZDAB_PARAMS_A {
-    *param_id
-    param_descr
+' Variable Definition DB 
+object "ZDAB_C_VARDEF_A - Variable Definition" as ZDAB_C_VARDEF_A { 
+  *variable_id
+  variable_name
+  variable_class_handler
+  s_admin_data
+}
+
+' Module Configuration DB
+object "ZDAB_C_MODCF_A - Module Config" as ZDAB_C_MODCF_A {
+    *module_id
+    module_name
+    is_active
     s_admin_data
 }
 
-object ZDAB_PARAM_CNF_A {
+' Parameter Configuration DB
+object "ZDAB_C_PRMCF_A - Parameter Config" as ZDAB_C_PRMCF_A {
+    *module_id
     *param_id
-    param_counter
-    param_value
+    param_descr
+    variable_id
+    s_admin_data
 }
+
+' Parameter Value Configuration DB
+object "ZDAB_C_PRMVLCF_A - Parameter Value Config" as ZDAB_C_PRMVLCF_A {
+    *module_id
+    *param_id
+    *param_condition
+    param_value
+    s_admin_data
+}
+
+ZDAB_C_MODCF_A --* ZDAB_C_PRMCF_A
+ZDAB_C_PRMCF_A --* ZDAB_C_PRMVLCF_A
+ZDAB_C_VARDEF_A ..* ZDAB_C_PRMCF_A
 
 @enduml
