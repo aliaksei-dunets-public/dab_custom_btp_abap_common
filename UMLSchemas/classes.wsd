@@ -1,0 +1,32 @@
+@startuml Class Diagramm
+
+' Variable Definition Handler Interface
+interface zdab_if_variable_defin_handler {
+    +validate_value(iv_param_value)
+    +get_value_help_source(it_filters) : rt_value_help_source
+}
+
+class zbp_dab_i_moduleconfig
+
+class zbp_dab_i_variabledefinition
+
+class zdab_cl_dynamic_value_help_qp {
+    +select()
+    #fetch_data()
+    #paging_response()
+    #sorting_response()
+}
+
+class zdab_cl_factory {
+    +get_instance()
+    +get_variable_defin_handler()
+}
+
+class zdab_cl_variabledefinition_api {
+    +get_instance()
+}
+
+class zdab_cx_rap_query_provider
+class zdab_cx_variabledefinition
+
+@endumlƒ

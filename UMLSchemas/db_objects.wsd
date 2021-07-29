@@ -22,7 +22,6 @@ object "ZDAB_C_PRMCF_A - Parameter Config" as ZDAB_C_PRMCF_A {
     *param_id
     param_descr
     variable_id
-    s_admin_data
 }
 
 ' Parameter Value Configuration DB
@@ -31,7 +30,6 @@ object "ZDAB_C_PRMVLCF_A - Parameter Value Config" as ZDAB_C_PRMVLCF_A {
     *param_id
     *param_condition
     param_value
-    s_admin_data
 }
 
 ZDAB_C_MODCF_A --* ZDAB_C_PRMCF_A
