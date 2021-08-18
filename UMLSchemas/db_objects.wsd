@@ -5,6 +5,7 @@ object "ZDAB_C_VARDEF_A - Variable Definition" as ZDAB_C_VARDEF_A {
   *variable_id
   variable_name
   variable_class_handler
+  is_vh_detected
   s_admin_data
 }
 
@@ -30,6 +31,7 @@ object "ZDAB_C_PRMVLCF_A - Parameter Value Config" as ZDAB_C_PRMVLCF_A {
     *param_id
     *param_condition
     param_value
+    param_value_4_value_help
 }
 
 ZDAB_C_MODCF_A --* ZDAB_C_PRMCF_A
