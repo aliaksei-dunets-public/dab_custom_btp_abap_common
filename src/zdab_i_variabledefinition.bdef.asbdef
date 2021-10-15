@@ -1,0 +1,30 @@
+managed implementation in class zbp_dab_i_variabledefinition unique;
+strict;
+with draft;
+
+define behavior for ZDAB_I_VariableDefinition alias VariableDefiniton
+persistent table zdab_c_vardef_a
+draft table zdab_c_vardef_d
+lock master total etag last_changed_at
+authorization master ( global )
+etag master local_last_changed_at
+{
+  field ( mandatory : create, readonly : update ) variable_id;
+  field ( mandatory ) variable_class_handler;
+  field ( readonly ) created_by, created_at, last_changed_at, last_changed_by, local_last_changed_at, local_last_changed_by;
+  field ( features : instance ) variable_name;
+
+  create;
+  update;
+  delete;
+
+  draft action Discard;
+  draft action Resume;
+  draft action Edit;
+  draft action Activate;
+  draft determine action Prepare;
+
+  validation validateMandatoryFields on save { create; field variable_name; }
+  validation validateClassHandler on save { create; field variable_class_handler; }
+
+}

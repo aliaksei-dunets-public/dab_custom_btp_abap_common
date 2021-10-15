@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>DAB: Custom Common Message Class</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>&amp;1 &amp;2 &amp;3 &amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Mandatory fields is not filled</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Class Handler &amp;1 is invalid</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Variable ID is missed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Variable Definition has not been found for ID - &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Value - &amp;1 is inconsistent for Variable ID - &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>050</MSGNR>
+     <TEXT>Module Config API: Module ID is not specified</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>051</MSGNR>
+     <TEXT>Module Config API: Module ID &amp;1 has not been found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>052</MSGNR>
+     <TEXT>Module Config API: Parameter ID is not specified</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>053</MSGNR>
+     <TEXT>Module Config API: Module ID &amp;1 and Parameter ID &amp;2 has not been found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDAB_CUST_COMMON</ARBGB>
+     <MSGNR>054</MSGNR>
+     <TEXT>Module Config API: Parameter ID &amp;1 and Condition &amp;2 has not been found</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

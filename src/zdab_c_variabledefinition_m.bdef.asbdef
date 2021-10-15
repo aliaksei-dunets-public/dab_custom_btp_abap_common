@@ -1,0 +1,16 @@
+projection;
+strict;
+use draft;
+
+define behavior for ZDAB_C_VariableDefinition_M alias VariableDefinitonManage
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Discard;
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Prepare;
+}

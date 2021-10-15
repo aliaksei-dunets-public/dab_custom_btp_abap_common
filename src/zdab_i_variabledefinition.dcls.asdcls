@@ -1,0 +1,11 @@
+@EndUserText.label: 'DAB: Variable Definition Access Control'
+@MappingRole: true
+define role ZDAB_I_VariableDefinition {
+  grant
+    select
+      on
+        ZDAB_I_VariableDefinition
+          where
+            ( ) = aspect pfcg_auth( S_TABU_NAM, TABLE = 'ZDAB_I_VARIABLEDEFINITION', ACTVT = '03' );
+            
+}

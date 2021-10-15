@@ -1,0 +1,11 @@
+@EndUserText.label: 'DAB: Module Configuration Access Control'
+@MappingRole: true
+define role ZDAB_I_ModuleConfig {
+  grant
+    select
+      on
+        ZDAB_I_ModuleConfig
+          where
+            ( ) = aspect pfcg_auth( S_TABU_NAM, TABLE = 'ZDAB_I_MODULECONFIG', ACTVT = '03' );
+            
+}

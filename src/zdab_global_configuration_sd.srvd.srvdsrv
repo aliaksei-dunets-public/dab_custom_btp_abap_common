@@ -1,0 +1,9 @@
+@EndUserText.label: 'DAB: Global Configuration'
+define service ZDAB_GLOBAL_CONFIGURATION_SD {
+  expose ZDAB_C_VariableDefinition_M as VariableDefinitionManage;
+  expose ZDAB_C_ModuleConfig_M as ModuleConfigManage;
+  expose ZDAB_C_ParamConfig_M as ParamConfigManage;
+  expose ZDAB_C_ParamConfigByVariable as ParamConfigByVariable;
+  expose ZDAB_C_ParamValueConfig_M as ParamValueConfigManage;
+  expose ZDAB_I_User_VH as UserValueHelp;
+}

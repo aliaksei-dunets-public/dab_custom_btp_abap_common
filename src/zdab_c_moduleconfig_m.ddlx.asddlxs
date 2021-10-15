@@ -1,0 +1,128 @@
+@Metadata.layer: #CORE
+
+@Search.searchable: true
+@UI: {
+  headerInfo: {
+    typeName: 'Module',
+    typeNamePlural: 'Modules',
+    title: {
+      type: #STANDARD,
+      value: 'module_id'
+    },
+    description: {
+      type: #STANDARD,
+      value: 'module_descr'
+    }
+  }
+}
+
+annotate entity ZDAB_C_ModuleConfig_M with
+{
+
+  @UI.facet : [
+    {
+      id:'MainCollectionFacet',
+      type: #COLLECTION,
+      purpose: #STANDARD,
+      label: 'Module',
+      position: 10
+    },
+    {
+      id: 'DetailData',
+      parentId: 'MainCollectionFacet',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'Detail_Data',
+      label: 'Details',
+      position: 10
+    },
+    {
+      id: 'AdminData',
+      parentId: 'MainCollectionFacet',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'Admin_Data',
+      label: 'Admin Data',
+      position: 20
+    },
+    {
+      id: 'ParameterConfigTables',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_ParameterConfig',
+      label: 'Parameters',
+      position: 20
+    }
+  ]
+
+  @UI: {
+    lineItem:       [{ position: 10, importance: #HIGH }],
+    identification: [{ position: 10, qualifier: 'Detail_Data'}],
+    selectionField: [{ position: 10 }]
+  }
+  @Search.defaultSearchElement: true
+  module_id;
+
+  @UI: {
+    lineItem:       [{ hidden: true }],
+    identification: [{ position: 20, qualifier: 'Detail_Data'}],
+    selectionField: [{ exclude: true }]
+  }
+  @Search.defaultSearchElement: true
+  @EndUserText.label: 'Module Name'
+  module_name;
+
+  @UI: {
+    lineItem:       [{ position: 30, importance: #HIGH }],
+    identification: [{ position: 30, qualifier: 'Detail_Data'}],
+    multiLineText: true
+  }
+  @Search.defaultSearchElement: true
+  @EndUserText.label: 'Module Description'
+  module_descr;
+
+  @UI: {
+    lineItem:       [{ position: 40, importance: #HIGH }],
+    identification: [{ position: 40, qualifier: 'Detail_Data'}],
+    selectionField: [{ position: 40 }]
+  }
+  @Search.defaultSearchElement: true
+  module_is_active;
+
+  @UI: {
+    identification: [{ position: 10, qualifier: 'Admin_Data' }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'ZDAB_I_User_VH', element: 'UserID'  } }]
+  created_by;
+
+  @UI: {
+    identification: [{ position: 20, qualifier: 'Admin_Data' }]
+  }
+  @EndUserText.label: 'Created At'
+  created_at;
+
+  @UI: {
+    identification: [{ position: 30, qualifier: 'Admin_Data' }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'ZDAB_I_User_VH', element: 'UserID'  } }]
+  last_changed_by;
+
+  @UI: {
+    identification: [{ position: 40, qualifier: 'Admin_Data' }]
+  }
+  @EndUserText.label: 'Last Changed At'
+  last_changed_at;
+
+  @UI.hidden: true
+  local_last_changed_by;
+  @UI.hidden: true
+  local_last_changed_at;
+  @UI.hidden: true
+  CreatedByDescr;
+  @UI.hidden: true
+  LastChangedByDescr;
+
+  // Associations
+  //  _ParameterConfig;
+
+}

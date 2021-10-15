@@ -1,0 +1,114 @@
+@Metadata.layer: #CORE
+
+@Search.searchable: true
+@UI: {
+  headerInfo: {
+    typeName: 'Parameter',
+    typeNamePlural: 'Parameters',
+    title: {
+      type: #STANDARD,
+      value: 'param_id'
+    },
+    description: {
+      type: #STANDARD,
+      value: 'variable_id'
+    }
+  },
+  presentationVariant: [{ 
+    requestAtLeast: ['variable_id']
+  }]
+}
+
+annotate entity ZDAB_C_ParamConfig_M with
+{
+  @UI.facet : [
+    {
+      id:'MainCollectionFacet',
+      type: #COLLECTION,
+      purpose: #STANDARD,
+      label: 'Parameter',
+      position: 10
+    },
+    {
+      id: 'DetailData',
+      parentId: 'MainCollectionFacet',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'Detail_Data',
+      label: 'Details',
+      position: 10
+    },
+    {
+      id: 'AdminData',
+      parentId: 'MainCollectionFacet',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'Admin_Data',
+      label: 'Admin Data',
+      position: 20
+    },
+    {
+      id: 'ParamValueConfigTables',
+      label: 'Values',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_ParameterValueConfig',
+      position: 20
+    }
+  ]
+
+//  @UI.hidden: true
+  module_id;
+
+  @UI: {
+    lineItem:       [{ position: 10, importance: #HIGH }],
+    identification: [{ position: 10, qualifier: 'Detail_Data'}]
+  }
+  @Search.defaultSearchElement: true
+  param_id;
+
+  @UI: {
+    lineItem:       [{ hidden: true }],
+    identification: [{ position: 20, qualifier: 'Detail_Data'}]
+  }
+  @Search.defaultSearchElement: true
+  @EndUserText.label: 'Parameter Name'
+  param_name;
+
+  @UI: {
+    lineItem:       [{ hidden: true }],
+    identification: [{ position: 30, qualifier: 'Detail_Data'}],
+    multiLineText: true
+  }
+  @Search.defaultSearchElement: true
+  param_descr;
+
+  @Consumption.semanticObject: 'zdab_variabledefinition'
+  @UI: {
+    lineItem: [
+      { position: 30, type: #STANDARD, importance: #HIGH }
+    ],
+    identification: [{ position: 30, qualifier: 'Detail_Data'}]
+  }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'ZDAB_I_VariableDefinition_VH', element: 'variable_id'  } }]
+  variable_id;
+
+  @UI: {
+    identification: [{ position: 10, qualifier: 'Admin_Data' }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'ZDAB_I_User_VH', element: 'UserID'  } }]
+  created_by;
+
+  @UI: {
+    identification: [{ position: 20, qualifier: 'Admin_Data' }]
+  }
+  @EndUserText.label: 'Created At'
+  created_at;
+
+  @UI.hidden: true
+  CreatedByDescr;
+  @UI.hidden: true
+  variable_name;
+  
+}

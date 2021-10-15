@@ -1,0 +1,50 @@
+managed implementation in class zbp_dab_i_moduleconfig unique;
+strict;
+
+define behavior for ZDAB_I_ModuleConfig alias ModuleConfig
+persistent table zdab_c_modcf_a
+lock master etag master last_changed_at
+authorization master ( global )
+{
+
+  field ( readonly ) created_by, created_at, last_changed_at, last_changed_by, local_last_changed_at, local_last_changed_by;
+
+  create;
+  update;
+  delete;
+  association _ParameterConfig { create; }
+}
+
+define behavior for ZDAB_I_ParamConfig alias ParamConfig
+persistent table zdab_c_prmcf_a
+lock dependent by _ModuleConfig
+authorization dependent by _ModuleConfig
+etag dependent by _ModuleConfig
+{
+  field ( readonly ) module_id;
+  field ( readonly ) created_by, created_at;
+
+  update;
+  delete;
+
+  association _ModuleConfig { }
+  association _ParameterValueConfig { create; }
+}
+
+define behavior for ZDAB_I_ParamValueConfig alias ParamValueConfig
+persistent table zdab_c_prmvlcf_a
+lock dependent by _ModuleConfig
+authorization dependent by _ModuleConfig
+etag dependent by _ModuleConfig
+{
+  field ( readonly ) module_id, param_id;
+  field ( readonly ) created_by, created_at;
+
+  validation ValidateParamValue on save { field param_value; }
+
+  update;
+  delete;
+
+  association _ModuleConfig { }
+  association _ParameterConfig { }
+}

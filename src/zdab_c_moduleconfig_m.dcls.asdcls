@@ -1,0 +1,11 @@
+@EndUserText.label: 'DAB: Module Configuration Manage'
+@MappingRole: true
+define role ZDAB_C_ModuleConfig_M {
+  grant
+    select
+      on
+        ZDAB_C_ModuleConfig_M
+          where
+            inheriting conditions from entity ZDAB_I_ModuleConfig;
+            
+}

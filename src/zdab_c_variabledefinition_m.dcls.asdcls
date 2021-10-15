@@ -1,0 +1,11 @@
+@EndUserText.label: 'DAB: Variable Definition Manage'
+@MappingRole: true
+define role ZDAB_C_VariableDefinition_M {
+  grant
+    select
+      on
+        ZDAB_C_VariableDefinition_M
+          where
+            inheriting conditions from entity ZDAB_I_VariableDefinition;
+            
+}

@@ -1,0 +1,118 @@
+@Metadata.layer: #CORE
+
+@Search.searchable: true
+@UI: {
+  headerInfo: {
+    typeName: 'Value',
+    typeNamePlural: 'Values',
+    title: {
+      type: #STANDARD,
+      value: 'param_id'
+    },
+    description: {
+      type: #STANDARD,
+      value: 'param_condition'
+    }
+  }
+}
+
+annotate entity ZDAB_C_ParamValueConfig_M with
+{
+  @UI.facet : [
+    {
+      id:'MainCollectionFacet',
+      type: #COLLECTION,
+      purpose: #STANDARD,
+      label: 'Variable',
+      position: 10
+    },
+    {
+      id: 'DetailData',
+      parentId: 'MainCollectionFacet',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'Detail_Data',
+      label: 'Details',
+      position: 10
+    },
+    {
+      id: 'AdminData',
+      parentId: 'MainCollectionFacet',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'Admin_Data',
+      label: 'Admin Data',
+      position: 20
+    }
+  ]
+
+  @UI.hidden: true
+  module_id;
+
+  @UI.hidden: true
+  param_id;
+
+  @UI: {
+    lineItem:       [{ position: 10, importance: #HIGH }],
+    identification: [{ position: 10, qualifier: 'Detail_Data'}]
+  }
+  @Search.defaultSearchElement: true
+  param_condition;
+  
+  @UI: {
+    lineItem:       [{ position: 20, importance: #HIGH }],
+    identification: [{ position: 20, qualifier: 'Detail_Data' }]
+  }
+  @Consumption.valueHelpDefinition: [{
+    entity : { name: 'ZDAB_CE_DYNAMICVALUEHELP', element: 'param_value' },
+    additionalBinding: [{ localElement: 'variable_id', element: 'variable_id', usage: #FILTER_AND_RESULT }]
+  }]
+  @Search.defaultSearchElement: true
+  param_value;
+
+//  @UI: {
+//    lineItem:       [{ position: 20, importance: #HIGH, hidden: #(fc_hide_param_value_4_vh) }],
+//    identification: [{ position: 20, qualifier: 'Detail_Data', hidden: #(fc_hide_param_value_4_vh) }]
+//  }
+//  @Consumption.valueHelpDefinition: [{
+//    entity : { name: 'ZDAB_CE_DYNAMICVALUEHELP', element: 'param_value' },
+//    additionalBinding: [{ localElement: 'variable_id', element: 'variable_id', usage: #FILTER_AND_RESULT }]
+//  }]
+//  @UI.hidden: true
+//  param_value_4_value_help;
+  
+//  @UI: {
+//    lineItem:       [{ position: 20, importance: #HIGH, hidden: #(fc_hide_param_value_4_bool) }],
+//    identification: [{ position: 20, qualifier: 'Detail_Data', hidden: #(fc_hide_param_value_4_bool) }]
+//  }
+//  @EndUserText.label: 'Param Value'
+//  @UI.hidden: true
+//  param_value_4_boolean;
+  
+  @UI: {
+    lineItem:       [{ position: 30, importance: #HIGH }],
+    identification: [{ position: 30, qualifier: 'Detail_Data' }]
+  }
+  @Search.defaultSearchElement: true
+  @EndUserText.label: 'Param Value Description'
+  param_value_descr;
+
+  @UI: {
+    identification: [{ position: 10, qualifier: 'Admin_Data' }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity : { name: 'ZDAB_I_User_VH', element: 'UserID' } }]
+  created_by;
+
+  @UI: {
+    identification: [{ position: 20, qualifier: 'Admin_Data' }]
+  }
+  @EndUserText.label: 'Created At'
+  created_at;
+
+  @UI.hidden: true
+  variable_id;
+
+  @UI.hidden: true
+  CreatedByDescr;
+
+}

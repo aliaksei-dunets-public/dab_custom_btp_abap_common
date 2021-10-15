@@ -1,0 +1,47 @@
+projection;
+strict;
+//use draft;
+
+define behavior for ZDAB_C_ModuleConfig_M alias ModuleConfigManage
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+//  use action Discard;
+//  use action Resume;
+//  use action Edit;
+//  use action Activate;
+//  use action Prepare;
+//
+//  use association _ParameterConfig { create; with draft; }
+
+    use association _ParameterConfig { create; }
+}
+
+define behavior for ZDAB_C_ParamConfig_M alias ParamConfigManage
+use etag
+{
+  use update;
+  use delete;
+
+//  use association _ModuleConfig { with draft; }
+//  use association _ParameterValueConfig { create; with draft; }
+
+    use association _ModuleConfig { }
+    use association _ParameterValueConfig { create; }
+}
+
+define behavior for ZDAB_C_ParamValueConfig_M alias ParamValueConfigManage
+use etag
+{
+  use update;
+  use delete;
+
+//  use association _ModuleConfig { with draft; }
+//  use association _ParameterConfig { with draft; }
+
+    use association _ModuleConfig { }
+    use association _ParameterConfig { }
+}

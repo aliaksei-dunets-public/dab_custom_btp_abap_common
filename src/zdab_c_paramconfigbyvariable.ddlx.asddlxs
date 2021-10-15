@@ -1,0 +1,50 @@
+@Metadata.layer: #CORE
+
+@Search.searchable: true
+@UI: {
+  headerInfo: {
+    typeName: 'Parameter',
+    typeNamePlural: 'Parameters'
+  }
+}
+
+annotate entity ZDAB_C_ParamConfigByVariable with
+{
+  
+  @UI: {
+    lineItem: [
+      { position: 20, importance: #HIGH, type: #STANDARD }
+    ]
+  }
+  @Consumption.semanticObject: 'zdab_moduleconfig'
+  @Search.defaultSearchElement: true
+  module_id;
+
+  @UI: {
+    lineItem: [{ position: 10, importance: #HIGH }]
+  }
+  @Search.defaultSearchElement: true
+  param_id;
+  
+  @UI.hidden: true
+  variable_id;
+  
+  @UI: {
+    lineItem: [{ position: 30, importance: #HIGH }]
+  }
+  created_by;
+  
+  @UI: {
+    lineItem: [{ position: 40, importance: #HIGH }]
+  }
+  @EndUserText.label: 'Created At'
+  created_at;  
+  
+  @UI.hidden: true
+  param_name;
+  @UI.hidden: true
+  module_name;
+  @UI.hidden: true
+  CreatedByDescr;
+
+}
